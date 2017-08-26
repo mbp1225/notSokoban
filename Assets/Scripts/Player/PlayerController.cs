@@ -16,10 +16,13 @@ public class PlayerController : MonoBehaviour {
 
     public RaycastHit hit;
 
+    public GameObject gm;
+
     void Start ()
     {
         player = GetComponent<Transform>();
         upOff = new Vector3(0, 0.5f, 0);
+        gm = GameObject.FindWithTag("GameController");
     }
 
     void Update ()
@@ -140,5 +143,6 @@ public class PlayerController : MonoBehaviour {
 
             }
         }
+        gm.GetComponent<GameManager>().Step();
     }
 }
